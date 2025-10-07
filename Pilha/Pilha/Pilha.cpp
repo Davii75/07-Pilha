@@ -85,15 +85,23 @@ void push()
 
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
-	novo->prox = NULL;
+	novo->prox = topo;
+	topo = novo;
 
-
+	cout << "O elemento " << novo->valor << " foi inserido no topo da pilha." << endl;
 }
 
 void pop()
 {
+	if (topo == NULL) {
+		cout << "A pilha esta vazia." << endl;
+		return;
+	}
 
-	
-
+	NO* aux = topo;
+	int numeroApagar = topo->valor;
+	topo = topo->prox;
+	free(aux);
+	cout << "Elemento removido: " << numeroApagar << endl;
 }
 
